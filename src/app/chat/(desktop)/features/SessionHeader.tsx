@@ -1,4 +1,4 @@
-import { ActionIcon, Logo } from '@lobehub/ui';
+import { ActionIcon } from '@lobehub/ui';
 import { createStyles } from 'antd-style';
 import { MessageSquarePlus } from 'lucide-react';
 import { memo } from 'react';
@@ -10,9 +10,18 @@ import { useSessionStore } from '@/store/session';
 
 import SessionSearchBar from '../../features/SessionSearchBar';
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars,unused-imports/no-unused-vars
 export const useStyles = createStyles(({ css, token }) => ({
   logo: css`
-    fill: ${token.colorText};
+    user-select: none;
+
+    display: inline-block;
+
+    font-family: 'Arial Rounded MT Bold', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 36px; /* Align vertically with the icons */
+    color: #000; /* Black color */
   `,
   top: css`
     position: sticky;
@@ -28,7 +37,8 @@ const Header = memo(() => {
   return (
     <Flexbox className={styles.top} gap={16} padding={16}>
       <Flexbox distribution={'space-between'} horizontal>
-        <Logo className={styles.logo} size={36} type={'text'} />
+        {/* eslint-disable-next-line react/no-unescaped-entities */}
+        <div className={styles.logo}>Yozuru's AI</div>
         <ActionIcon
           icon={MessageSquarePlus}
           onClick={() => createSession()}
