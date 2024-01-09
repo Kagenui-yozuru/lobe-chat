@@ -6,7 +6,7 @@ ENV PNPM_HOME="/pnpm"
 ENV PATH="$PNPM_HOME:$PATH"
 RUN corepack enable
 
-WORKDIR /app
+WORKDIR /root/lobe-chat
 
 RUN pnpm add sharp
 
@@ -16,7 +16,7 @@ ENV PNPM_HOME="/pnpm"
 ENV PATH="$PNPM_HOME:$PATH"
 RUN corepack enable
 
-WORKDIR /app
+WORKDIR /root/lobe-chat
 
 COPY package.json ./
 
@@ -29,14 +29,14 @@ RUN pnpm run build:docker # run build standalone for docker version
 
 ## Production image, copy all the files and run next
 FROM base AS runner
-WORKDIR /app
+WORKDIR /root/lobe-chat
 
 ENV NODE_ENV production
 
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
 
-COPY --from=builder /app/public ./public
+COPY --from=builder /root/lobe-chat/public ./public
 
 # Set the correct permission for prerender cache
 RUN mkdir .next
@@ -44,9 +44,9 @@ RUN chown nextjs:nodejs .next
 
 # Automatically leverage output traces to reduce image size
 # https://nextjs.org/docs/advanced-features/output-file-tracing
-COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
-COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
-COPY --from=sharp --chown=nextjs:nodejs /app/node_modules/.pnpm ./node_modules/.pnpm
+COPY --from=builder --chown=nextjs:nodejs /root/lobe-chat/.next/standalone ./
+COPY --from=builder --chown=nextjs:nodejs /root/lobe-chat/.next/static ./.next/static
+COPY --from=sharp --chown=nextjs:nodejs /root/lobe-chat/node_modules/.pnpm ./node_modules/.pnpm
 
 USER nextjs
 
