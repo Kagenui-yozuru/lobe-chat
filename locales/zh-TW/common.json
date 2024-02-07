@@ -1,4 +1,13 @@
 {
+  "ModelSelect": {
+    "featureTag": {
+      "custom": "自訂模型，預設支援函數呼叫與視覺辨識，請根據實際情況驗證上述能力的可用性",
+      "file": "該模型支援上傳檔案讀取與識別",
+      "functionCall": "該模型支援函數呼叫（Function Call）",
+      "tokens": "該模型單個會話最多支援 {{tokens}} Tokens",
+      "vision": "該模型支援視覺辨識"
+    }
+  },
   "about": "關於",
   "advanceSettings": "進階設定",
   "agentMaxToken": "助手最大標記",
@@ -13,6 +22,7 @@
   "close": "關閉",
   "confirmRemoveSessionItemAlert": "即將刪除此助手，刪除後將無法復原，請確認您的操作",
   "copy": "複製",
+  "copyFail": "複製失敗",
   "copySuccess": "複製成功",
   "defaultAgent": "預設助手",
   "defaultSession": "預設助手",
@@ -43,6 +53,7 @@
       "added": "匯入成功",
       "errors": "匯入出錯",
       "messages": "訊息",
+      "sessionGroups": "會話分組",
       "sessions": "助手",
       "skips": "重複跳過",
       "topics": "話題",
@@ -51,6 +62,7 @@
     "title": "匯入資料"
   },
   "lang": {
+    "ar": "阿拉伯語",
     "bn": "孟加拉語",
     "cs-CZ": "捷克語",
     "da-DK": "丹麥語",
@@ -86,6 +98,15 @@
     "zh-TW": "繁體中文"
   },
   "layoutInitializing": "正在載入版面配置...",
+  "modelProvider": {
+    "azure": "Azure",
+    "bedrock": "AWS Bedrock",
+    "google": "Google",
+    "moonshot": "Moonshot AI",
+    "oneapi": "One API",
+    "openai": "OpenAI",
+    "zhipu": "智譜AI"
+  },
   "noDescription": "暫無描述",
   "ok": "確定",
   "password": "密碼",

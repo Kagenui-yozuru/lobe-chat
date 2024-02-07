@@ -1,9 +1,8 @@
 import { Form, type ItemGroup, SelectWithImg, SliderWithInput } from '@lobehub/ui';
 import { Form as AntForm, App, Button, Input, Select } from 'antd';
 import isEqual from 'fast-deep-equal';
-import { debounce } from 'lodash-es';
 import { AppWindow, Monitor, Moon, Palette, Sun } from 'lucide-react';
-import { memo, useCallback } from 'react';
+import { memo, useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { FORM_STYLE } from '@/const/layoutTokens';
@@ -30,7 +29,10 @@ const Common = memo<SettingsCommonProps>(({ showAccessCodeConfig }) => {
   const { t } = useTranslation('setting');
   const [form] = AntForm.useForm();
 
-  const clearSessions = useSessionStore((s) => s.clearSessions);
+  const [clearSessions, clearSessionGroups] = useSessionStore((s) => [
+    s.clearSessions,
+    s.clearSessionGroups,
+  ]);
   const [clearTopics, clearAllMessages] = useChatStore((s) => [
     s.removeAllTopics,
     s.clearAllMessages,
@@ -49,10 +51,8 @@ const Common = memo<SettingsCommonProps>(({ showAccessCodeConfig }) => {
 
   const handleReset = useCallback(() => {
     modal.confirm({
-      cancelText: t('cancel', { ns: 'common' }),
       centered: true,
       okButtonProps: { danger: true },
-      okText: t('ok', { ns: 'common' }),
       onOk: () => {
         resetSettings();
         form.setFieldsValue(DEFAULT_SETTINGS);
@@ -63,18 +63,17 @@ const Common = memo<SettingsCommonProps>(({ showAccessCodeConfig }) => {
 
   const handleClear = useCallback(() => {
     modal.confirm({
-      cancelText: t('cancel', { ns: 'common' }),
       centered: true,
       okButtonProps: {
         danger: true,
       },
-      okText: t('ok', { ns: 'common' }),
       onOk: async () => {
         await clearSessions();
         await removeAllPlugins();
         await clearTopics();
         await removeAllFiles();
         await clearAllMessages();
+        await clearSessionGroups();
 
         message.success(t('danger.clear.success'));
       },
@@ -136,20 +135,23 @@ const Common = memo<SettingsCommonProps>(({ showAccessCodeConfig }) => {
           <SliderWithInput
             marks={{
               12: {
-                label: t('settingTheme.fontSize.marks.small'),
+                label: 'A',
                 style: {
+                  fontSize: 12,
                   marginTop: 4,
                 },
               },
               14: {
                 label: t('settingTheme.fontSize.marks.normal'),
                 style: {
+                  fontSize: 14,
                   marginTop: 4,
                 },
               },
               18: {
-                label: t('settingTheme.fontSize.marks.large'),
+                label: 'A',
                 style: {
+                  fontSize: 18,
                   marginTop: 4,
                 },
               },
@@ -183,7 +185,12 @@ const Common = memo<SettingsCommonProps>(({ showAccessCodeConfig }) => {
   const system: SettingItemGroup = {
     children: [
       {
-        children: <Input.Password placeholder={t('settingSystem.accessCode.placeholder')} />,
+        children: (
+          <Input.Password
+            autoComplete={'new-password'}
+            placeholder={t('settingSystem.accessCode.placeholder')}
+          />
+        ),
         desc: t('settingSystem.accessCode.desc'),
         hidden: !showAccessCodeConfig,
         label: t('settingSystem.accessCode.title'),
@@ -214,12 +221,24 @@ const Common = memo<SettingsCommonProps>(({ showAccessCodeConfig }) => {
     title: t('settingSystem.title'),
   };
 
+  useEffect(() => {
+    const unsubscribe = useGlobalStore.subscribe(
+      (s) => s.settings,
+      (settings) => {
+        form.setFieldsValue(settings);
+      },
+    );
+    return () => {
+      unsubscribe();
+    };
+  }, []);
+
   return (
     <Form
       form={form}
       initialValues={settings}
       items={[theme, system]}
-      onValuesChange={debounce(setSettings, 100)}
+      onValuesChange={setSettings}
       {...FORM_STYLE}
     />
   );
