@@ -14,14 +14,13 @@ import { Flexbox } from 'react-layout-kit';
 import DataImporter from '@/features/DataImporter';
 import { configService } from '@/services/config';
 import { GlobalStore, useGlobalStore } from '@/store/global';
-import { SettingsTabs, SidebarTabKey } from '@/store/global/initialState';
+import {SidebarTabKey} from '@/store/global/initialState';
 
 export interface BottomActionProps {
-  setTab: GlobalStore['switchSideBar'];
-  tab: GlobalStore['sidebarKey'];
+  tab?: GlobalStore['sidebarKey'];
 }
 
-const BottomActions = memo<BottomActionProps>(({ tab, setTab }) => {
+const BottomActions = memo<BottomActionProps>(({tab}) => {
   const router = useRouter();
   const { t } = useTranslation('common');
 
@@ -80,11 +79,6 @@ const BottomActions = memo<BottomActionProps>(({ tab, setTab }) => {
         </Flexbox>
       ),
       onClick: () => {
-        setTab(SidebarTabKey.Setting);
-        useGlobalStore.setState({
-          settingsTab: SettingsTabs.Common,
-          sidebarKey: SidebarTabKey.Setting,
-        });
         router.push('/settings/common');
       },
     },

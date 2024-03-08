@@ -1,4 +1,14 @@
 {
+  "about": {
+    "title": "حول"
+  },
+  "analytics": {
+    "telemetry": {
+      "desc": "من خلال اختيار إرسال بيانات التحليل، يمكنك مساعدتنا في تحسين تجربة مستخدم LobeChat بشكل عام",
+      "title": "إرسال بيانات الاستخدام المجهولة"
+    },
+    "title": "تحليلات"
+  },
   "danger": {
     "clear": {
       "action": "مسح الآن",
@@ -21,6 +31,14 @@
     "sessionWithName": "إعدادات الجلسة · {{name}}"
   },
   "llm": {
+    "Anthropic": {
+      "title": "أنثروبيك",
+      "token": {
+        "desc": "أدخل مفتاح API من أنثروبيك",
+        "placeholder": "مفتاح API من أنثروبيك",
+        "title": "مفتاح API"
+      }
+    },
     "AzureOpenAI": {
       "azureApiVersion": {
         "desc": "إصدار واجهة برمجة التطبيقات لـ Azure، يتبع تنسيق YYYY-MM-DD، راجع [أحدث الإصدار](https://learn.microsoft.com/zh-cn/azure/ai-services/openai/reference#chat-completions)",
@@ -76,6 +94,14 @@
         "title": "مفتاح واجهة برمجة التطبيقات"
       }
     },
+    "Mistral": {
+      "title": "Mistral AI",
+      "token": {
+        "desc": "أدخل مفتاح API من Mistral AI",
+        "placeholder": "مفتاح API من Mistral AI",
+        "title": "مفتاح API"
+      }
+    },
     "Moonshot": {
       "title": "الجانب المظلم من القمر",
       "token": {
@@ -83,6 +109,22 @@
         "placeholder": "مفتاح API Moonshot AI",
         "title": "مفتاح API"
       }
+    },
+    "Ollama": {
+      "checker": {
+        "desc": "تحقق من صحة عنوان الوكيل"
+      },
+      "customModelName": {
+        "desc": "إضافة نموذج مخصص، استخدم فاصلة (،) للنماذج المتعددة",
+        "placeholder": "فيكونا، للافا، كوديلاما، لاما2:13b-نص",
+        "title": "اسم النموذج المخصص"
+      },
+      "endpoint": {
+        "desc": "أدخل عنوان وكيل واجهة Ollama، اتركه فارغًا إذا لم يتم تحديده محليًا",
+        "placeholder": "http://127.0.0.1:11434/v1",
+        "title": "عنوان وكيل الواجهة"
+      },
+      "title": "أولاما"
     },
     "OpenAI": {
       "azureApiVersion": {
@@ -122,8 +164,16 @@
         "title": "استخدام Azure OpenAI"
       }
     },
+    "Perplexity": {
+      "title": "Perplexity AI",
+      "token": {
+        "desc": "أدخل مفتاح API من Perplexity AI",
+        "placeholder": "مفتاح API Perplexity AI",
+        "title": "مفتاح الواجهة البرمجية للتطبيق"
+      }
+    },
     "Zhipu": {
-      "title": "智谱",
+      "title": "Zhipu AI",
       "token": {
         "desc": "املأ مفتاح واجهة برمجة التطبيقات الخاص بـ Zhipu",
         "placeholder": "مفتاح واجهة برمجة التطبيقات الخاص بـ Zhipu",
@@ -263,6 +313,22 @@
       "placeholder": "الرجاء إدخال كلمة المرور",
       "title": "كلمة المرور"
     },
+    "oauth": {
+      "info": {
+        "desc": "تم تسجيل الدخول",
+        "title": "معلومات الحساب"
+      },
+      "signin": {
+        "action": "تسجيل الدخول",
+        "desc": "قم بتسجيل الدخول باستخدام SSO لفتح التطبيق",
+        "title": "تسجيل الدخول إلى الحساب"
+      },
+      "signout": {
+        "action": "تسجيل الخروج",
+        "confirm": "هل ترغب في تأكيد الخروج؟",
+        "success": "تم تسجيل الخروج بنجاح"
+      }
+    },
     "title": "إعدادات النظام"
   },
   "settingTTS": {
@@ -338,6 +404,7 @@
     "tooltips": "مشاركة في سوق المساعدين"
   },
   "tab": {
+    "about": "حول",
     "agent": "المساعد الافتراضي",
     "common": "إعدادات عامة",
     "llm": "نموذج اللغة",

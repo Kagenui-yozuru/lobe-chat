@@ -4,7 +4,7 @@ import { useGlobalStore } from '@/store/global';
 import { modelProviderSelectors, settingsSelectors } from '@/store/global/selectors';
 import { createJWT } from '@/utils/jwt';
 
-const getProviderAuthPayload = (provider: string) => {
+export const getProviderAuthPayload = (provider: string) => {
   switch (provider) {
     case ModelProvider.ZhiPu: {
       return { apiKey: modelProviderSelectors.zhipuAPIKey(useGlobalStore.getState()) };
@@ -38,6 +38,26 @@ const getProviderAuthPayload = (provider: string) => {
         azureApiVersion: azure.apiVersion,
         endpoint: azure.endpoint,
       };
+    }
+
+    case ModelProvider.Ollama: {
+      const endpoint = modelProviderSelectors.ollamaProxyUrl(useGlobalStore.getState());
+
+      return {
+        endpoint,
+      };
+    }
+
+    case ModelProvider.Perplexity: {
+      return {apiKey: modelProviderSelectors.perplexityAPIKey(useGlobalStore.getState())};
+    }
+
+    case ModelProvider.Anthropic: {
+      return {apiKey: modelProviderSelectors.anthropicAPIKey(useGlobalStore.getState())};
+    }
+
+    case ModelProvider.Mistral: {
+      return {apiKey: modelProviderSelectors.mistralAPIKey(useGlobalStore.getState())};
     }
 
     default:

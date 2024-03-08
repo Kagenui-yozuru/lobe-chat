@@ -1,4 +1,14 @@
 {
+  "about": {
+    "title": "Sobre"
+  },
+  "analytics": {
+    "telemetry": {
+      "desc": "Ao optar por enviar dados de telemetria, você pode nos ajudar a melhorar a experiência do usuário do LobeChat como um todo",
+      "title": "Enviar dados de uso anônimo"
+    },
+    "title": "Análise de dados"
+  },
   "danger": {
     "clear": {
       "action": "Limpar Agora",
@@ -21,6 +31,14 @@
     "sessionWithName": "Configurações de Sessão · {{name}}"
   },
   "llm": {
+    "Anthropic": {
+      "title": "Anthropic",
+      "token": {
+        "desc": "Insira a chave da API da Anthropic",
+        "placeholder": "Chave da API da Anthropic",
+        "title": "Chave da API"
+      }
+    },
     "AzureOpenAI": {
       "azureApiVersion": {
         "desc": "Versão da API do Azure, seguindo o formato YYYY-MM-DD, consulte a [última versão](https://learn.microsoft.com/pt-br/azure/ai-services/openai/reference#chat-completions)",
@@ -76,6 +94,14 @@
         "title": "API Key"
       }
     },
+    "Mistral": {
+      "title": "Mistral AI",
+      "token": {
+        "desc": "Insira a chave da API do Mistral AI",
+        "placeholder": "Chave da API do Mistral AI",
+        "title": "Chave da API"
+      }
+    },
     "Moonshot": {
       "title": "Lado Escuro da Lua",
       "token": {
@@ -83,6 +109,22 @@
         "placeholder": "Chave da API do Moonshot AI",
         "title": "Chave da API"
       }
+    },
+    "Ollama": {
+      "checker": {
+        "desc": "Verifique se o endereço do proxy está preenchido corretamente"
+      },
+      "customModelName": {
+        "desc": "Adicione modelos personalizados, separados por vírgula (,) se forem vários modelos",
+        "placeholder": "vicuna,llava,codellama,llama2:13b-text",
+        "title": "Nome do modelo personalizado"
+      },
+      "endpoint": {
+        "desc": "Insira o endereço do proxy da interface Ollama. Deixe em branco se não for especificado localmente",
+        "placeholder": "http://127.0.0.1:11434/v1",
+        "title": "Endereço do proxy da interface"
+      },
+      "title": "Ollama"
     },
     "OpenAI": {
       "azureApiVersion": {
@@ -122,8 +164,16 @@
         "title": "Usar Azure OpenAI"
       }
     },
+    "Perplexity": {
+      "title": "Perplexity",
+      "token": {
+        "desc": "Insira a chave da API do Perplexity AI",
+        "placeholder": "Chave da API do Perplexity AI",
+        "title": "Chave da API"
+      }
+    },
     "Zhipu": {
-      "title": "智谱",
+      "title": "Zhipu AI",
       "token": {
         "desc": "Insira a API Key do Zhipu",
         "placeholder": "Zhipu API Key",
@@ -263,6 +313,22 @@
       "placeholder": "Digite a senha de acesso",
       "title": "Senha de acesso"
     },
+    "oauth": {
+      "info": {
+        "desc": "Logado",
+        "title": "Informações da conta"
+      },
+      "signin": {
+        "action": "Entrar",
+        "desc": "Faça login com SSO para desbloquear o aplicativo",
+        "title": "Entrar na conta"
+      },
+      "signout": {
+        "action": "Sair",
+        "confirm": "Confirmar saída?",
+        "success": "Saiu da conta com sucesso"
+      }
+    },
     "title": "Configurações do sistema"
   },
   "settingTTS": {
@@ -338,6 +404,7 @@
     "tooltips": "Compartilhar no mercado de assistentes"
   },
   "tab": {
+    "about": "Sobre",
     "agent": "Assistente Padrão",
     "common": "Configurações Comuns",
     "llm": "Modelo de Linguagem",

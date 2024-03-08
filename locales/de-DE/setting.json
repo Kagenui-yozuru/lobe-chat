@@ -1,4 +1,14 @@
 {
+  "about": {
+    "title": "Über"
+  },
+  "analytics": {
+    "telemetry": {
+      "desc": "Durch das Senden von Telemetriedaten können Sie uns dabei helfen, die Gesamtnutzererfahrung von LobeChat zu verbessern",
+      "title": "Anonyme Nutzungsdaten senden"
+    },
+    "title": "Analytics"
+  },
   "danger": {
     "clear": {
       "action": "Alle löschen",
@@ -21,6 +31,14 @@
     "sessionWithName": "Sitzungseinstellungen · {{name}}"
   },
   "llm": {
+    "Anthropic": {
+      "title": "Anthropic",
+      "token": {
+        "desc": "Geben Sie den API-Schlüssel von Anthropic ein",
+        "placeholder": "Anthropic API-Schlüssel",
+        "title": "API-Schlüssel"
+      }
+    },
     "AzureOpenAI": {
       "azureApiVersion": {
         "desc": "Die API-Version von Azure, die dem Format JJJJ-MM-TT folgt. Siehe [Neueste Version](https://learn.microsoft.com/de-de/azure/ai-services/openai/reference#chat-completions)",
@@ -76,6 +94,14 @@
         "title": "API-Schlüssel"
       }
     },
+    "Mistral": {
+      "title": "Mistral KI",
+      "token": {
+        "desc": "Geben Sie den API-Schlüssel von Mistral KI ein",
+        "placeholder": "Mistral KI API-Schlüssel",
+        "title": "API-Schlüssel"
+      }
+    },
     "Moonshot": {
       "title": "月球着陆",
       "token": {
@@ -83,6 +109,22 @@
         "placeholder": "Moonshot AI API-Schlüssel",
         "title": "API-Schlüssel"
       }
+    },
+    "Ollama": {
+      "checker": {
+        "desc": "Überprüfen Sie, ob die Proxy-Adresse korrekt eingegeben wurde"
+      },
+      "customModelName": {
+        "desc": "Fügen Sie benutzerdefinierte Modelle hinzu. Verwenden Sie zur Angabe mehrerer Modelle ein Komma (,)",
+        "placeholder": "Vicuna, Llava, Codellama, Llama2:13b-Text",
+        "title": "Benutzerdefinierte Modellnamen"
+      },
+      "endpoint": {
+        "desc": "Geben Sie die Ollama-Proxy-URL ein. Wenn keine lokale URL angegeben ist, lassen Sie dieses Feld leer",
+        "placeholder": "http://127.0.0.1:11434/v1",
+        "title": "Proxy-URL"
+      },
+      "title": "Ollama"
     },
     "OpenAI": {
       "azureApiVersion": {
@@ -122,8 +164,16 @@
         "title": "Azure OpenAI verwenden"
       }
     },
+    "Perplexity": {
+      "title": "perplexity",
+      "token": {
+        "desc": "Geben Sie den API-Schlüssel von Perplexity AI ein",
+        "placeholder": "Perplexity AI API-Schlüssel",
+        "title": "API-Schlüssel"
+      }
+    },
     "Zhipu": {
-      "title": "智谱",
+      "title": "Zhipu AI",
       "token": {
         "desc": "Geben Sie den API-Schlüssel von Zhipu ein",
         "placeholder": "Zhipu API Key",
@@ -263,6 +313,22 @@
       "placeholder": "Bitte geben Sie das Zugangspasswort ein",
       "title": "Zugangspasswort"
     },
+    "oauth": {
+      "info": {
+        "desc": "Angemeldet",
+        "title": "Kontoinformationen"
+      },
+      "signin": {
+        "action": "Anmelden",
+        "desc": "Mit SSO anmelden, um die Anwendung freizuschalten",
+        "title": "Konto anmelden"
+      },
+      "signout": {
+        "action": "Abmelden",
+        "confirm": "Abmelden bestätigen?",
+        "success": "Abmeldung erfolgreich"
+      }
+    },
     "title": "Systemeinstellungen"
   },
   "settingTTS": {
@@ -338,6 +404,7 @@
     "tooltips": "Auf dem Assistentenmarkt teilen"
   },
   "tab": {
+    "about": "Über",
     "agent": "Standard-Assistent",
     "common": "Allgemeine Einstellungen",
     "llm": "Sprachmodell",

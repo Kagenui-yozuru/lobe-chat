@@ -1,4 +1,14 @@
 {
+  "about": {
+    "title": "Informazioni"
+  },
+  "analytics": {
+    "telemetry": {
+      "desc": "Attivando l'invio dei dati di telemetria, ci aiuti a migliorare complessivamente l'esperienza utente di LobeChat",
+      "title": "Invio dati anonimi"
+    },
+    "title": "Analisi"
+  },
   "danger": {
     "clear": {
       "action": "Cancella subito",
@@ -21,6 +31,14 @@
     "sessionWithName": "Impostazioni della sessione · {{name}}"
   },
   "llm": {
+    "Anthropic": {
+      "title": "Anthropic",
+      "token": {
+        "desc": "Inserisci la chiave API di Anthropic",
+        "placeholder": "Chiave API di Anthropic",
+        "title": "Chiave API"
+      }
+    },
     "AzureOpenAI": {
       "azureApiVersion": {
         "desc": "Versione dell'API di Azure, nel formato YYYY-MM-DD, consulta la [versione più recente](https://learn.microsoft.com/it-it/azure/ai-services/openai/reference#chat-completions)",
@@ -76,6 +94,14 @@
         "title": "Chiave API"
       }
     },
+    "Mistral": {
+      "title": "Mistral AI",
+      "token": {
+        "desc": "Inserisci la chiave API da Mistral AI",
+        "placeholder": "Chiave API Mistral AI",
+        "title": "Chiave API"
+      }
+    },
     "Moonshot": {
       "title": "Lato Oscuro della Luna",
       "token": {
@@ -83,6 +109,22 @@
         "placeholder": "Chiave API Moonshot AI",
         "title": "Chiave API"
       }
+    },
+    "Ollama": {
+      "checker": {
+        "desc": "Verifica se l'indirizzo del proxy è stato compilato correttamente"
+      },
+      "customModelName": {
+        "desc": "Aggiungi un modello personalizzato, separando i modelli multipli con una virgola (,)",
+        "placeholder": "vicuna,llama,codellama,llama2:13b-text",
+        "title": "Nome del modello personalizzato"
+      },
+      "endpoint": {
+        "desc": "Inserisci l'indirizzo del proxy dell'interfaccia Ollama, lascialo vuoto se non è stato specificato localmente",
+        "placeholder": "http://127.0.0.1:11434/v1",
+        "title": "Indirizzo del proxy dell'interfaccia"
+      },
+      "title": "Ollama"
     },
     "OpenAI": {
       "azureApiVersion": {
@@ -120,6 +162,14 @@
         "fetch": "Ottieni elenco",
         "serverConfig": "L'amministratore ha configurato il servizio per abilitare Azure OpenAI, il cambio è disabilitato",
         "title": "Usa Azure OpenAI"
+      }
+    },
+    "Perplexity": {
+      "title": "Perplexity",
+      "token": {
+        "desc": "Inserisci la chiave API di Perplexity AI",
+        "placeholder": "Chiave API di Perplexity AI",
+        "title": "Chiave API"
       }
     },
     "Zhipu": {
@@ -263,6 +313,22 @@
       "placeholder": "Inserisci la password di accesso",
       "title": "Password di accesso"
     },
+    "oauth": {
+      "info": {
+        "desc": "Accesso effettuato",
+        "title": "Informazioni account"
+      },
+      "signin": {
+        "action": "Accedi",
+        "desc": "Accedi tramite SSO per sbloccare l'applicazione",
+        "title": "Accedi all'account"
+      },
+      "signout": {
+        "action": "Esci",
+        "confirm": "Confermi l'uscita?",
+        "success": "Disconnessione avvenuta con successo"
+      }
+    },
     "title": "Impostazioni di sistema"
   },
   "settingTTS": {
@@ -338,6 +404,7 @@
     "tooltips": "Condividi sul mercato degli assistenti"
   },
   "tab": {
+    "about": "Informazioni",
     "agent": "Assistente predefinito",
     "common": "Impostazioni comuni",
     "llm": "Modello linguistico",

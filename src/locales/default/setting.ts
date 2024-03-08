@@ -1,4 +1,14 @@
 export default {
+  about: {
+    title: '关于',
+  },
+  analytics: {
+    telemetry: {
+      desc: '通过选择发送遥测数据，你可以帮助我们改善 LobeChat 整体用户体验',
+      title: '发送匿名使用数据',
+    },
+    title: '数据统计',
+  },
   danger: {
     clear: {
       action: '立即清除',
@@ -21,6 +31,14 @@ export default {
     sessionWithName: '会话设置 · {{name}}',
   },
   llm: {
+    Anthropic: {
+      title: 'Anthropic',
+      token: {
+        desc: '填入来自 Anthropic 的 API Key',
+        placeholder: 'Anthropic API Key',
+        title: 'API Key',
+      },
+    },
     AzureOpenAI: {
       azureApiVersion: {
         desc: 'Azure 的 API 版本，遵循 YYYY-MM-DD 格式，查阅[最新版本](https://learn.microsoft.com/zh-cn/azure/ai-services/openai/reference#chat-completions)',
@@ -77,6 +95,14 @@ export default {
         title: 'API Key',
       },
     },
+    Mistral: {
+      title: 'Mistral AI',
+      token: {
+        desc: '填入来自 Mistral AI 的 API Key',
+        placeholder: 'Mistral AI API Key',
+        title: 'API Key',
+      },
+    },
     Moonshot: {
       title: '月之暗面',
       token: {
@@ -84,6 +110,22 @@ export default {
         placeholder: 'Moonshot AI API Key',
         title: 'API Key',
       },
+    },
+    Ollama: {
+      checker: {
+        desc: '测试代理地址是否正确填写',
+      },
+      customModelName: {
+        desc: '增加自定义模型，多个模型使用逗号（,）隔开',
+        placeholder: 'vicuna,llava,codellama,llama2:13b-text',
+        title: '自定义模型名称',
+      },
+      endpoint: {
+        desc: '填入 Ollama 接口代理地址，本地未额外指定可留空',
+        placeholder: 'http://127.0.0.1:11434/v1',
+        title: '接口代理地址',
+      },
+      title: 'Ollama',
     },
     OpenAI: {
       azureApiVersion: {
@@ -121,6 +163,14 @@ export default {
         fetch: '获取列表',
         serverConfig: '管理员在服务端配置开启了 Azure OpenAI，禁止切换',
         title: 'Azure OpenAI',
+      },
+    },
+    Perplexity: {
+      title: 'Perplexity',
+      token: {
+        desc: '填入来自 Perplexity AI 的 API Key',
+        placeholder: 'Perplexity AI API Key',
+        title: 'API Key',
       },
     },
     Zhipu: {
@@ -265,6 +315,22 @@ export default {
       placeholder: '请输入访问密码',
       title: '访问密码',
     },
+    oauth: {
+      info: {
+        desc: '已登录',
+        title: '账户信息',
+      },
+      signin: {
+        action: '登录',
+        desc: '使用 SSO 登录以解锁应用',
+        title: '登录账号',
+      },
+      signout: {
+        action: '退出登录',
+        confirm: '确认退出？',
+        success: '退出登录成功',
+      },
+    },
     title: '系统设置',
   },
   settingTTS: {
@@ -340,11 +406,13 @@ export default {
     tooltips: '分享到助手市场',
   },
   tab: {
+    about: '关于',
     agent: '默认助手',
     common: '通用设置',
     llm: '语言模型',
     tts: '语音服务',
   },
+
   tools: {
     builtins: {
       groupName: '内置插件',

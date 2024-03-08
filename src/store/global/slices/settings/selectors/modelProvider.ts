@@ -1,20 +1,28 @@
 import { produce } from 'immer';
 
 import {
+  AnthropicProvider,
   BedrockProvider,
   GoogleProvider,
   LOBE_DEFAULT_MODEL_LIST,
+  MistralProvider,
   MoonshotProvider,
+  OllamaProvider,
   OpenAIProvider,
+  PerplexityProvider,
   ZhiPuProvider,
 } from '@/config/modelProviders';
 import { ChatModelCard, ModelProviderCard } from '@/types/llm';
+import { GlobalLLMProviderKey } from '@/types/settings';
 import { parseModelString } from '@/utils/parseModels';
 
 import { GlobalStore } from '../../../store';
 import { currentSettings } from './settings';
 
 const modelProvider = (s: GlobalStore) => currentSettings(s).languageModel;
+const providerEnabled = (provider: GlobalLLMProviderKey) => (s: GlobalStore) =>
+  currentSettings(s).languageModel[provider]?.enabled || false;
+
 const openAIConfig = (s: GlobalStore) => modelProvider(s).openAI;
 
 const openAIAPIKey = (s: GlobalStore) => openAIConfig(s).OPENAI_API_KEY;
@@ -34,8 +42,23 @@ const googleProxyUrl = (s: GlobalStore) => modelProvider(s).google.endpoint;
 const enableAzure = (s: GlobalStore) => modelProvider(s).openAI.useAzure;
 const azureConfig = (s: GlobalStore) => modelProvider(s).azure;
 
+const enableMistral = (s: GlobalStore) => modelProvider(s).mistral.enabled;
+const mistralAPIKey = (s: GlobalStore) => modelProvider(s).mistral.apiKey;
+
 const enableMoonshot = (s: GlobalStore) => modelProvider(s).moonshot.enabled;
 const moonshotAPIKey = (s: GlobalStore) => modelProvider(s).moonshot.apiKey;
+
+const enableOllamaConfigInSettings = (s: GlobalStore) =>
+  s.serverConfig.languageModel?.ollama?.enabled || false;
+
+const enableOllama = (s: GlobalStore) => modelProvider(s).ollama.enabled;
+const ollamaProxyUrl = (s: GlobalStore) => modelProvider(s).ollama.endpoint;
+
+const enablePerplexity = (s: GlobalStore) => modelProvider(s).perplexity.enabled;
+const perplexityAPIKey = (s: GlobalStore) => modelProvider(s).perplexity.apiKey;
+
+const enableAnthropic = (s: GlobalStore) => modelProvider(s).anthropic.enabled;
+const anthropicAPIKey = (s: GlobalStore) => modelProvider(s).anthropic.apiKey;
 
 // const azureModelList = (s: GlobalStore): ModelProviderCard => {
 //   const azure = azureConfig(s);
@@ -46,8 +69,11 @@ const moonshotAPIKey = (s: GlobalStore) => modelProvider(s).moonshot.apiKey;
 // };
 
 // 提取处理 chatModels 的专门方法
-const processChatModels = (modelConfig: ReturnType<typeof parseModelString>): ChatModelCard[] => {
-  let chatModels = modelConfig.removeAll ? [] : OpenAIProvider.chatModels;
+const processChatModels = (
+  modelConfig: ReturnType<typeof parseModelString>,
+  defaultChartModels = OpenAIProvider.chatModels,
+): ChatModelCard[] => {
+  let chatModels = modelConfig.removeAll ? [] : defaultChartModels;
 
   // 处理移除逻辑
   if (!modelConfig.removeAll) {
@@ -102,6 +128,12 @@ const modelSelectList = (s: GlobalStore): ModelProviderCard[] => {
 
   const chatModels = processChatModels(modelConfig);
 
+  const ollamaModelConfig = parseModelString(
+    currentSettings(s).languageModel.ollama.customModelName,
+  );
+
+  const ollamaChatModels = processChatModels(ollamaModelConfig, OllamaProvider.chatModels);
+
   return [
     {
       ...OpenAIProvider,
@@ -112,6 +144,10 @@ const modelSelectList = (s: GlobalStore): ModelProviderCard[] => {
     { ...MoonshotProvider, enabled: enableMoonshot(s) },
     { ...GoogleProvider, enabled: enableGoogle(s) },
     { ...BedrockProvider, enabled: enableBedrock(s) },
+    { ...OllamaProvider, chatModels: ollamaChatModels, enabled: enableOllama(s) },
+    { ...PerplexityProvider, enabled: enablePerplexity(s) },
+    { ...AnthropicProvider, enabled: enableAnthropic(s) },
+    { ...MistralProvider, enabled: enableMistral(s) },
   ];
 };
 
@@ -152,6 +188,9 @@ export const modelProviderSelectors = {
   modelEnabledFiles,
   modelEnabledUpload,
 
+  modelProviderConfig: modelProvider,
+  providerEnabled,
+
   // OpenAI
   openAIConfig,
   openAIAPIKey,
@@ -174,4 +213,21 @@ export const modelProviderSelectors = {
   // Moonshot
   enableMoonshot,
   moonshotAPIKey,
+
+  // Ollama
+  enableOllamaConfigInSettings,
+  enableOllama,
+  ollamaProxyUrl,
+
+  // Perplexity
+  enablePerplexity,
+  perplexityAPIKey,
+
+  // Anthropic
+  enableAnthropic,
+  anthropicAPIKey,
+  
+  // Mistral
+  enableMistral,
+  mistralAPIKey,
 };

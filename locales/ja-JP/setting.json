@@ -1,4 +1,14 @@
 {
+  "about": {
+    "title": "について"
+  },
+  "analytics": {
+    "telemetry": {
+      "desc": "匿名の使用データを送信することで、LobeChat の全体的なユーザーエクスペリエンスの向上にご協力いただけます",
+      "title": "匿名使用データの送信"
+    },
+    "title": "データ分析"
+  },
   "danger": {
     "clear": {
       "action": "すぐにクリア",
@@ -21,6 +31,14 @@
     "sessionWithName": "セッション設定 · {{name}}"
   },
   "llm": {
+    "Anthropic": {
+      "title": "Anthropic",
+      "token": {
+        "desc": "Anthropic の API キーを入力してください",
+        "placeholder": "Anthropic API キー",
+        "title": "API キー"
+      }
+    },
     "AzureOpenAI": {
       "azureApiVersion": {
         "desc": "AzureのAPIバージョン。YYYY-MM-DD形式に従う。[最新バージョン](https://learn.microsoft.com/zh-cn/azure/ai-services/openai/reference#chat-completions)を参照",
@@ -76,6 +94,14 @@
         "title": "APIキー"
       }
     },
+    "Mistral": {
+      "title": "Mistral AI",
+      "token": {
+        "desc": "Mistral AI からの API キーを入力してください",
+        "placeholder": "Mistral AI API キー",
+        "title": "API キー"
+      }
+    },
     "Moonshot": {
       "title": "月の裏側",
       "token": {
@@ -83,6 +109,22 @@
         "placeholder": "Moonshot AI API キー",
         "title": "API キー"
       }
+    },
+    "Ollama": {
+      "checker": {
+        "desc": "プロキシアドレスが正しく入力されているかをテストします"
+      },
+      "customModelName": {
+        "desc": "カスタムモデルを追加します。複数のモデルはコンマ（,）で区切ってください",
+        "placeholder": "ビクーニャ、リャマ、コードリャマ、リャマ2:13b-テキスト",
+        "title": "カスタムモデル名"
+      },
+      "endpoint": {
+        "desc": "Ollama インターフェースプロキシアドレスを入力します。ローカルで追加指定がない場合は空白のままにしてください",
+        "placeholder": "http://127.0.0.1:11434/v1",
+        "title": "インターフェースプロキシアドレス"
+      },
+      "title": "Ollama"
     },
     "OpenAI": {
       "azureApiVersion": {
@@ -120,6 +162,14 @@
         "fetch": "リストを取得",
         "serverConfig": "管理者はサーバー側で Azure OpenAI を有効にし、切り替えを禁止しています",
         "title": "Azure OpenAI を使用"
+      }
+    },
+    "Perplexity": {
+      "title": "Perplexity",
+      "token": {
+        "desc": "Perplexity AI の API キーを入力してください",
+        "placeholder": "Perplexity AI API キー",
+        "title": "API キー"
       }
     },
     "Zhipu": {
@@ -263,6 +313,22 @@
       "placeholder": "アクセスコードを入力してください",
       "title": "アクセスコード"
     },
+    "oauth": {
+      "info": {
+        "desc": "ログイン済み",
+        "title": "アカウント情報"
+      },
+      "signin": {
+        "action": "ログイン",
+        "desc": "SSO ログインを使用してアプリをロック解除",
+        "title": "アカウントにログイン"
+      },
+      "signout": {
+        "action": "ログアウト",
+        "confirm": "ログアウトしますか？",
+        "success": "ログアウトに成功しました"
+      }
+    },
     "title": "システム設定"
   },
   "settingTTS": {
@@ -338,6 +404,7 @@
     "tooltips": "エージェントマーケットに共有"
   },
   "tab": {
+    "about": "について",
     "agent": "デフォルトエージェント",
     "common": "一般設定",
     "llm": "言語モデル",
